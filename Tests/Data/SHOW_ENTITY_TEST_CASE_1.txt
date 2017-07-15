@@ -1,0 +1,35 @@
+2017-07-15 10:45:53.220: [Power] PowerTaskList.DebugPrintPower() - BLOCK_START BlockType=TRIGGER Entity=stories2 EffectCardId= EffectIndex=0 Target=0
+2017-07-15 10:45:53.220: [Power] PowerTaskList.DebugPrintPower() -     TAG_CHANGE Entity=stories2 tag=467 value=1
+2017-07-15 10:45:53.220: [Power] PowerTaskList.DebugPrintPower() -     SHOW_ENTITY - Updating Entity=[name=UNKNOWN ENTITY [cardType=INVALID] id=26 zone=DECK zonePos=0 cardId= player=1] CardID=CS2_200
+2017-07-15 10:45:53.220: [Power] PowerTaskList.DebugPrintPower() -         tag=PREMIUM value=0
+2017-07-15 10:45:53.220: [Power] PowerTaskList.DebugPrintPower() -         tag=DAMAGE value=0
+2017-07-15 10:45:53.220: [Power] PowerTaskList.DebugPrintPower() -         tag=HEALTH value=7
+2017-07-15 10:45:53.221: [Power] PowerTaskList.DebugPrintPower() -         tag=ATK value=6
+2017-07-15 10:45:53.221: [Power] PowerTaskList.DebugPrintPower() -         tag=COST value=6
+2017-07-15 10:45:53.221: [Power] PowerTaskList.DebugPrintPower() -         tag=ZONE value=HAND
+2017-07-15 10:45:53.221: [Power] PowerTaskList.DebugPrintPower() -         tag=CONTROLLER value=1
+2017-07-15 10:45:53.221: [Power] PowerTaskList.DebugPrintPower() -         tag=ENTITY_ID value=26
+2017-07-15 10:45:53.221: [Power] PowerTaskList.DebugPrintPower() -         tag=SILENCED value=0
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=WINDFURY value=0
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=TAUNT value=0
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=STEALTH value=0
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=DIVINE_SHIELD value=0
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=CHARGE value=0
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=CARDTYPE value=MINION
+2017-07-15 10:45:53.222: [Power] PowerTaskList.DebugPrintPower() -         tag=RARITY value=FREE
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=FROZEN value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=ZONE_POSITION value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=NUM_ATTACKS_THIS_TURN value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=FORCED_PLAY value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=TO_BE_DESTROYED value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=POISONOUS value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=CUSTOM_KEYWORD_EFFECT value=0
+2017-07-15 10:45:53.223: [Power] PowerTaskList.DebugPrintPower() -         tag=EXTRA_ATTACKS_THIS_TURN value=0
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -         tag=TAG_LAST_KNOWN_COST_IN_HAND value=6
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -         tag=478 value=1
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -         tag=479 value=6
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -     TAG_CHANGE Entity=[name=UNKNOWN ENTITY [cardType=INVALID] id=26 zone=DECK zonePos=0 cardId= player=1] tag=ZONE_POSITION value=4
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -     TAG_CHANGE Entity=stories2 tag=NUM_CARDS_DRAWN_THIS_TURN value=1
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -     TAG_CHANGE Entity=stories2 tag=467 value=0
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() -     TAG_CHANGE Entity=GameEntity tag=NEXT_STEP value=MAIN_ACTION
+2017-07-15 10:45:53.224: [Power] PowerTaskList.DebugPrintPower() - BLOCK_END
