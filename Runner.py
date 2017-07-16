@@ -1,3 +1,4 @@
 from Core import FileIO
 
-FileIO.RealtimeLoader()
+FileIO.StaticLoader()
+#FileIO.RealtimeLoader()
