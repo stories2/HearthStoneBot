@@ -1,6 +1,7 @@
 from Settings import DefineManager
 from Utils import LogManager
 import subprocess
+import DeckObserver
 
 def RealtimeLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
     LogManager.PrintLog("FileIO", "RealtimeLoader", "Load file path: " + targetFilePath, DefineManager.LOG_LEVEL_INFO)
@@ -30,4 +31,5 @@ def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
             break
 
         else:
-            LogManager.PrintLog("FileIO", "StaticLoader", logMessage, DefineManager.LOG_LEVEL_INFO)
+            # LogManager.PrintLog("FileIO", "StaticLoader", logMessage, DefineManager.LOG_LEVEL_INFO)
+            DeckObserver.IsShowEntityModeStartPoint(logMessage)
