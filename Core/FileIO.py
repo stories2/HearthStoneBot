@@ -1,2 +1,4 @@
-def RealtimeLoader(targetFilePath = "Tests/Data/hearthstone_2017_07_15_10_40_47.log"):
+from Settings import DefineManager
+
+def RealtimeLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
     print "load file path: ", targetFilePath
