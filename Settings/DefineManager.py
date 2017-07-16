@@ -1,6 +1,6 @@
 # Use this : Core/FileIO
 # As : method RealtimeLoader default parameter value
-DEFAULT_LOG_FILE_SAVED_PATH = "Tests/Data/hearthstone_2017_07_15_10_40_47.log"
+DEFAULT_LOG_FILE_SAVED_PATH = "Tests/Data/hearthstone_2017_07_16_17_45_19.log"
 
 # Use this : Utils/LogManager
 # As : method PrintLog log level value
@@ -18,4 +18,4 @@ DEFAULT_PRINT_MESSAGE = " {LogManager} [PrintLog] (Wrong Parameter Accepted)"
 # Use this : Runner
 # As : set watching log path
 COMPUTER_USER_NAME = "stories2"
-LOG_FILE_NAME = "hearthstone_2017_07_16_14_08_20.log"
+LOG_FILE_NAME = "hearthstone_2017_07_16_17_45_19.log"
