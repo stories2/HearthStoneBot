@@ -16,7 +16,8 @@ def RealtimeLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
             break
 
         else:
-            LogManager.PrintLog("FileIO", "RealtimeLoader", logMessage, DefineManager.LOG_LEVEL_INFO)
+            # LogManager.PrintLog("FileIO", "RealtimeLoader", logMessage, DefineManager.LOG_LEVEL_INFO)
+            DeckObserver.ParseShowEntity(logMessage)
 
 def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
     LogManager.PrintLog("FileIO", "StaticLoader", "Load file path: " + targetFilePath, DefineManager.LOG_LEVEL_INFO)
