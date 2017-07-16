@@ -1,4 +1,5 @@
 from Core import FileIO
+from Settings import DefineManager
 
 # FileIO.StaticLoader()
-FileIO.RealtimeLoader("/Users/stories2/Library/Preferences/Blizzard/Hearthstone/Logs/hearthstone_2017_07_16_13_49_24.log")
+FileIO.RealtimeLoader("/Users/" + DefineManager.COMPUTER_USER_NAME + "/Library/Preferences/Blizzard/Hearthstone/Logs/" + DefineManager.LOG_FILE_NAME)

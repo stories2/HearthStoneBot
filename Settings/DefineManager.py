@@ -14,3 +14,8 @@ DEFAULT_METHOD_NAME = "Write Method Name"
 DEFAULT_LOG_MESSAGE = "Write Log Message"
 # As : method PrintLog default print message
 DEFAULT_PRINT_MESSAGE = " {LogManager} [PrintLog] (Wrong Parameter Accepted)"
+
+# Use this : Runner
+# As : set watching log path
+COMPUTER_USER_NAME = "stories2"
+LOG_FILE_NAME = ""
