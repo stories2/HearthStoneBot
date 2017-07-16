@@ -13,4 +13,4 @@ DEFAULT_CLASS_NAME = "Write Class Name"
 DEFAULT_METHOD_NAME = "Write Method Name"
 DEFAULT_LOG_MESSAGE = "Write Log Message"
 # As : method PrintLog default print message
-DEFAULT_PRINT_MESSAGE = "{LogManager} [PrintLog] (Wrong Parameter Accepted)"
+DEFAULT_PRINT_MESSAGE = " {LogManager} [PrintLog] (Wrong Parameter Accepted)"
