@@ -24,6 +24,8 @@ def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
 
     hearthStoneLogFile = open(targetFilePath)
 
+    DeckObserver.GameObservingInit()
+
     while True:
         logMessage = hearthStoneLogFile.readline()
 
