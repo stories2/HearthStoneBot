@@ -25,7 +25,7 @@ def IsShowEntityModeStartPoint(logMessage):
         return []
 
 def GetShowEntityModeTagAndValue(logMessage):
-    searchedLogMessage = re.search("tag=(.+?) value=(.+?)\n", logMessage)
+    searchedLogMessage = re.search("         tag=(.+?) value=(.+?)\n", logMessage)
     if searchedLogMessage != None:
         foundedResult = [searchedLogMessage.group(1), searchedLogMessage.group(2)]
         LogManager.PrintLog("ShowEntityObserver", "GetShowEntityModeTagAndValue", "tag: " + foundedResult[0] + " value: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
