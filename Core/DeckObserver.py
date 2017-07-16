@@ -1,4 +1,5 @@
 import ShowEntityObserver
+import HideEntityObserver
 
 def ParseShowEntity(logMessage):
     # found show entity start point
@@ -7,3 +8,5 @@ def ParseShowEntity(logMessage):
     # crawl card tag datas
     else:
         ShowEntityObserver.GetShowEntityModeTagAndValue(logMessage)
+
+    HideEntityObserver.CheckHideEntity(logMessage)
