@@ -21,6 +21,20 @@ def IsShowEntityModeStartPoint(logMessage):
             LogManager.PrintLog("DeckObserver", "IsShowEntityModeStartPoint", "entity: " + foundedResult[0] + " card: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
             return foundedResult
     else:
+        LogManager.PrintLog("DeckObserver", "IsShowEntityModeStartPoint", "Show entity mode already true", DefineManager.LOG_LEVEL_WARN)
         return []
 
-#def ParseShowEntity(logMessage):
+def GetShowEntityModeTagAndValue(logMessage):
+    searchedLogMessage = re.search("tag=(.+?) value=(.+?)\n", logMessage)
+    if searchedLogMessage != None:
+        foundedResult = [searchedLogMessage.group(1), searchedLogMessage.group(2)]
+        LogManager.PrintLog("DeckObserver", "GetShowEntityModeTagAndValue", "tag: " + foundedResult[0] + " value: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
+    else:
+        SetIsShowEntityMode(False)
+        LogManager.PrintLog("DeckObserver", "GetShowEntityModeTagAndValue", "get tag and value disabled", DefineManager.LOG_LEVEL_WARN)
+
+def ParseShowEntity(logMessage):
+    if GetIsShowEntityMode() == False:
+        IsShowEntityModeStartPoint(logMessage)
+    elif GetIsShowEntityMode() == True:
+        GetShowEntityModeTagAndValue(logMessage)
