@@ -16,10 +16,21 @@ def IsShowEntityModeStartPoint(logMessage):
     if GetIsShowEntityMode() == False:
         searchedLogMessage = re.search("SHOW_ENTITY - Updating Entity=(.+?) CardID=(.+?)\n", logMessage)
         if searchedLogMessage != None:
-            SetIsShowEntityMode(True)
-            foundedResult = [searchedLogMessage.group(1), searchedLogMessage.group(2)]
-            LogManager.PrintLog("ShowEntityObserver", "IsShowEntityModeStartPoint", "entity: " + foundedResult[0] + " card: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
-            return foundedResult
+
+            entityDetailMessage = re.search("player=(.+?)]", searchedLogMessage.group(1))
+
+            if entityDetailMessage != None:
+
+                foundedEntityDetailResult = [entityDetailMessage.group(1)]
+
+                # LogManager.PrintLog("ShowEntityObserver", "IsShowEntityModeStartPoint", "entity detail: " + foundedEntityDetailResult[0], DefineManager.LOG_LEVEL_INFO)
+
+                SetIsShowEntityMode(True)
+                foundedResult = [foundedEntityDetailResult[0], searchedLogMessage.group(2)]
+                LogManager.PrintLog("ShowEntityObserver", "IsShowEntityModeStartPoint", "player: " + foundedResult[0] + " card: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
+                return foundedResult
+            else:
+                LogManager.PrintLog("ShowEntityObserver", "IsShowEntityModeStartPoint", "Wrong entity accepted", DefineManager.LOG_LEVEL_WARN)
     else:
         LogManager.PrintLog("ShowEntityObserver", "IsShowEntityModeStartPoint", "Show entity mode already true", DefineManager.LOG_LEVEL_WARN)
         return []
