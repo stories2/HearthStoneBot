@@ -7,12 +7,15 @@ Hearthstone deck tracking and simulate.
 ### Prerequisites
 
 This project only working mac os.
+You should be an hearthstone player.
 
 ### Installing
 
 [Check this](https://github.com/stories2/HearthStoneBot/wiki/Workspace-setting)
 
 ## Running the tests
+
+### Realtime test
 
 In Runner.py, disable or delete this line.
 
@@ -23,6 +26,16 @@ And enable or write this.
 ```FileIO.RealtimeLoader("/Users/" + DefineManager.COMPUTER_USER_NAME + "/Library/Preferences/Blizzard/Hearthstone/Logs/" + DefineManager.LOG_FILE_NAME)```
 
 In Settings/DefineManager.py, set `COMPUTER_USER_NAME` your username.
+
+### Static test
+
+In Runner.py, disable or delete this line.
+
+```FileIO.RealtimeLoader("/Users/" + DefineManager.COMPUTER_USER_NAME + "/Library/Preferences/Blizzard/Hearthstone/Logs/" + DefineManager.LOG_FILE_NAME)```
+
+And enable or write this.
+
+```FileIO.StaticLoader()```
 
 ## License
 
