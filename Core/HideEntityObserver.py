@@ -21,5 +21,8 @@ def CheckHideEntity(logMessage):
             #                     hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
             LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "entity: " + " ".join(hideEntityData[0]) +
                                 " tag: " + hideEntityData[1] + " value: " + hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
+
+            return hideEntityData[0]
         else:
             LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "wrong entity accepted", DefineManager.LOG_LEVEL_WARN)
+    return None

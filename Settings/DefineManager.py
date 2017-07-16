@@ -19,3 +19,9 @@ DEFAULT_PRINT_MESSAGE = " {LogManager} [PrintLog] (Wrong Parameter Accepted)"
 # As : set watching log path
 COMPUTER_USER_NAME = "stories2"
 LOG_FILE_NAME = "hearthstone_2017_07_16_17_45_19.log"
+
+# Use this : DeckOvserver
+# As : observing player
+PLAYER_NUMBER_1 = "1"
+PLAYER_NUMBER_SAVED_POINT = 5
+CARD_ID_SAVED_POINT = 1
