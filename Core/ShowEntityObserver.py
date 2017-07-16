@@ -47,7 +47,7 @@ def GetShowEntityModeTagAndValue(logMessage):
     searchedLogMessage = re.search("         tag=(.+?) value=(.+?)\n", logMessage)
     if searchedLogMessage != None:
         foundedResult = [searchedLogMessage.group(1), searchedLogMessage.group(2)]
-        LogManager.PrintLog("ShowEntityObserver", "GetShowEntityModeTagAndValue", "tag: " + foundedResult[0] + " value: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
+        # LogManager.PrintLog("ShowEntityObserver", "GetShowEntityModeTagAndValue", "tag: " + foundedResult[0] + " value: " + foundedResult[1], DefineManager.LOG_LEVEL_INFO)
 
         indexOfCardInfo[foundedResult[0]] = foundedResult[1]
 
@@ -61,6 +61,6 @@ def GetShowEntityModeTagAndValue(logMessage):
 
         indexOfCardInfo = {}
 
-        LogManager.PrintLog("ShowEntityObserver", "GetShowEntityModeTagAndValue", "get tag and value disabled", DefineManager.LOG_LEVEL_WARN)
+        # LogManager.PrintLog("ShowEntityObserver", "GetShowEntityModeTagAndValue", "get tag and value disabled", DefineManager.LOG_LEVEL_WARN)
 
         return savedCardInfo
