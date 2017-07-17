@@ -14,6 +14,9 @@ def GameObservingInit():
     deckObserverPlayer2 = {}
 
 def ParseShowEntity(logMessage):
+    global deckObserverPlayer1
+    global deckObserverPlayer2
+
     # found show entity start point
     if ShowEntityObserver.GetIsShowEntityMode() == False:
         ShowEntityObserver.IsShowEntityModeStartPoint(logMessage)
@@ -30,6 +33,7 @@ def ParseShowEntity(logMessage):
                 LogManager.PrintLog("DeckObserver", "ParseShowEntity", "player#2 selected card#" +
                                     selectedCardInfo["ENTITY_ID"] + ": " + selectedCardInfo["CARD_ID"], DefineManager.LOG_LEVEL_INFO)
 
+    # found hide entity
     hideCardInfo = HideEntityObserver.CheckHideEntity(logMessage)
     if hideCardInfo != None:
         if hideCardInfo[DefineManager.PLAYER_NUMBER_SAVED_POINT] == DefineManager.PLAYER_NUMBER_1:
