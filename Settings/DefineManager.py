@@ -25,3 +25,7 @@ LOG_FILE_NAME = "hearthstone_2017_07_16_23_22_24.log"
 PLAYER_NUMBER_1 = "1"
 PLAYER_NUMBER_SAVED_POINT = 5
 CARD_ID_SAVED_POINT = 1
+
+# Use this : TagChangeEntityObserver
+# As : not available
+NOT_AVAILABLE = -1

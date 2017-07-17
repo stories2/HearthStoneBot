@@ -2,6 +2,7 @@ from Utils import LogManager
 from Settings import DefineManager
 import ShowEntityObserver
 import HideEntityObserver
+import TagChangeEntityObserver
 
 deckObserverPlayer1 = {}
 deckObserverPlayer2 = {}
@@ -16,6 +17,9 @@ def GameObservingInit():
 def ParseShowEntity(logMessage):
     global deckObserverPlayer1
     global deckObserverPlayer2
+
+    if TagChangeEntityObserver.IsGameStart(logMessage):
+        GameObservingInit()
 
     # found show entity start point
     if ShowEntityObserver.GetIsShowEntityMode() == False:
