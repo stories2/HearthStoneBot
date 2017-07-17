@@ -3,6 +3,7 @@ from Settings import DefineManager
 import ShowEntityObserver
 import HideEntityObserver
 import TagChangeEntityObserver
+import json
 
 deckObserverPlayer1 = {}
 deckObserverPlayer2 = {}
@@ -21,6 +22,8 @@ def ParseShowEntity(logMessage):
     if TagChangeEntityObserver.IsGameStart(logMessage):
         GameObservingInit()
 
+    TagChangeEntityObserver.IsGameComplete(logMessage)
+
     # found show entity start point
     if ShowEntityObserver.GetIsShowEntityMode() == False:
         ShowEntityObserver.IsShowEntityModeStartPoint(logMessage)
@@ -38,8 +41,15 @@ def ParseShowEntity(logMessage):
                     LogManager.PrintLog("DeckObserver", "ParseShowEntity", "player#2 selected card#" +
                                         selectedCardInfo["ENTITY_ID"] + ": " + selectedCardInfo["CARD_ID"], DefineManager.LOG_LEVEL_INFO)
             else:
-                LogManager.PrintLog("DeckObserver", "ParseShowEntity", "whose card is this? card#"  +
-                                        selectedCardInfo["ENTITY_ID"] + ": " + selectedCardInfo["CARD_ID"], DefineManager.LOG_LEVEL_WARN)
+                if selectedCardInfo.has_key("ENTITY_ID") and selectedCardInfo.has_key("CARD_ID"):
+                    LogManager.PrintLog("DeckObserver", "ParseShowEntity", "whose card is this? card#"  +
+                                            selectedCardInfo["ENTITY_ID"] + ": " + selectedCardInfo["CARD_ID"], DefineManager.LOG_LEVEL_WARN)
+                else:
+                    try:
+                        LogManager.PrintLog("DeckObserver", "ParseShowEntity", "wrong card accepted\n" +
+                                            json.dumps(selectedCardInfo), DefineManager.LOG_LEVEL_WARN)
+                    except:
+                        LogManager.PrintLog("DeckObserver", "ParseShowEntity", "cannot print wrong card", DefineManager.LOG_LEVEL_ERROR)
 
     # found hide entity
     hideCardInfo = HideEntityObserver.CheckHideEntity(logMessage)
