@@ -2,6 +2,8 @@
 
 Hearthstone deck tracking and simulate.
 
+![Sample program running](./Sample.png)
+
 ## Getting Started
 
 ### Prerequisites

@@ -6,7 +6,8 @@ def DetectGameStatus(logMessage):
     tagChangeEntityData = re.search("TAG_CHANGE Entity=(.+?) tag=STATE value=(.+?)\n", logMessage)
 
     if tagChangeEntityData != None:
-        LogManager.PrintLog("TagChangeEntityObserver", "DetectGameStatus", "value: " + tagChangeEntityData.group(1), DefineManager.LOG_LEVEL_INFO)
+        LogManager.PrintLog("TagChangeEntityObserver", "DetectGameStatus", "entity: " + tagChangeEntityData.group(1) +
+                            " value: " + tagChangeEntityData.group(2), DefineManager.LOG_LEVEL_INFO)
         return [tagChangeEntityData.group(1), tagChangeEntityData.group(2)]
     return None
 
