@@ -3,7 +3,9 @@ from Utils import LogManager, ExceptionManager, DirectoryManager
 import subprocess
 import DeckObserver
 
-def RealtimeLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
+def RealtimeLoader(targetFilePath = DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES_PATH):
+    targetFilePath = DirectoryManager.FindLatestLogFile(targetFilePath)
+
     LogManager.PrintLog("FileIO", "RealtimeLoader", "Load file path: " + targetFilePath, DefineManager.LOG_LEVEL_INFO)
 
     hearthStoneLogFile = subprocess.Popen(['tail', '-F', targetFilePath], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
@@ -29,9 +31,12 @@ def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
     while True:
         logMessage = hearthStoneLogFile.readline()
 
-        if ExceptionManager.DetectOutOfLog(logMessage):
+        # if ExceptionManager.DetectOutOfLog(logMessage):
             # DirectoryManager.FindLatestLogFile()
-            DirectoryManager.MakeNewDirectory(DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES_PATH, "test")
+            # DirectoryManager.MakeNewDirectory(DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES_PATH, "test")
+            # DirectoryManager.MoveFileToDirectory(DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES_PATH,
+            #                                      "hearthstone_2017_07_17_11_17_09.log",
+            #                                      "hearthstone_2017_07_17_11_17_09")
 
         if not logMessage:
             LogManager.PrintLog("FileIO", "StaticLoader", "File read process ended", DefineManager.LOG_LEVEL_INFO)
