@@ -30,7 +30,8 @@ def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
         logMessage = hearthStoneLogFile.readline()
 
         if ExceptionManager.DetectOutOfLog(logMessage):
-            DirectoryManager.FindLatestLogFile()
+            # DirectoryManager.FindLatestLogFile()
+            DirectoryManager.MakeNewDirectory(DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES_PATH, "test")
 
         if not logMessage:
             LogManager.PrintLog("FileIO", "StaticLoader", "File read process ended", DefineManager.LOG_LEVEL_INFO)
