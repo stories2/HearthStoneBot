@@ -29,3 +29,7 @@ CARD_ID_SAVED_POINT = 1
 # Use this : TagChangeEntityObserver
 # As : not available
 NOT_AVAILABLE = -1
+
+# Use this : Utils/DirectoryManager
+# As : default parameter value
+DEFAULT_HEARTH_STONE_LOG_FILES_PATH = "/Users/" + COMPUTER_USER_NAME + "/Library/Preferences/Blizzard/Hearthstone/Logs/"

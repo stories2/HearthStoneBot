@@ -1,5 +1,5 @@
 from Settings import DefineManager
-from Utils import LogManager, ExceptionManager
+from Utils import LogManager, ExceptionManager, DirectoryManager
 import subprocess
 import DeckObserver
 
@@ -29,7 +29,8 @@ def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
     while True:
         logMessage = hearthStoneLogFile.readline()
 
-        ExceptionManager.DetectOutOfLog(logMessage)
+        if ExceptionManager.DetectOutOfLog(logMessage):
+            DirectoryManager.FindLatestLogFile()
 
         if not logMessage:
             LogManager.PrintLog("FileIO", "StaticLoader", "File read process ended", DefineManager.LOG_LEVEL_INFO)
