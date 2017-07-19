@@ -1,6 +1,6 @@
 # Use this : Core/FileIO
 # As : method RealtimeLoader default parameter value
-DEFAULT_LOG_FILE_SAVED_PATH = "Tests/Data/hearthstone_2017_07_17_11_17_09.log"
+DEFAULT_LOG_FILE_SAVED_PATH = "Tests/Data/hearthstone_2017_07_17_18_23_25.log"
 
 # Use this : Utils/LogManager
 # As : method PrintLog log level value

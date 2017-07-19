@@ -3,7 +3,7 @@ from Utils import LogManager
 import re
 
 def DetectGameStatus(logMessage):
-    tagChangeEntityData = re.search("TAG_CHANGE Entity=(.+?) tag=STATE value=(.+?)\n", logMessage)
+    tagChangeEntityData = re.search("TAG_CHANGE Entity=(.+?) tag=PLAYSTATE value=(.+?)\n", logMessage)
 
     if tagChangeEntityData != None:
         LogManager.PrintLog("TagChangeEntityObserver", "DetectGameStatus", "entity: " + tagChangeEntityData.group(1) +
