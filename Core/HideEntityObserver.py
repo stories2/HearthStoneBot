@@ -21,18 +21,12 @@ def CheckHideEntity(logMessage):
             #                     hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
             LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "entity: " + " ".join(hideEntityData[0]) +
                                 " tag: " + hideEntityData[1] + " value: " + hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
-            if hideEntityData[2] == "PLAY":
-                LogManager.PrintLog("HideEntityObserver", "CheckHideEntity",
-                                    "cardId: " + hideEntityData[0][4] + " active", DefineManager.LOG_LEVEL_INFO)
-            elif hideEntityData[2] == "DECK":
-                LogManager.PrintLog("HideEntityObserver", "CheckHideEntity",
-                                    "cardId: " + hideEntityData[0][4] + " deck", DefineManager.LOG_LEVEL_INFO)
-            elif hideEntityData[2] == "GRAVEYARD":
-                LogManager.PrintLog("HideEntityObserver", "CheckHideEntity",
-                                    "cardId: " + hideEntityData[0][4] + " graveyard", DefineManager.LOG_LEVEL_INFO)
+
+            if hideEntityData[1] == "ZONE":
+                LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "Card state " + hideEntityData[0][2] +
+                                    " -> " + hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
             else:
-                LogManager.PrintLog("HideEntityObserver", "CheckHideEntity",
-                                    "cardId: " + hideEntityData[0][4] + " unknown: " + hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
+                LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "Unkown tag", DefineManager.LOG_LEVEL_WARN)
 
             return hideEntityData[0]
         else:
