@@ -1,5 +1,5 @@
 from Settings import DefineManager
-from Utils import LogManager
+from Utils import LogManager, AdvancedPrintManager
 import re
 
 fieldCardsInfo = {}
@@ -47,6 +47,8 @@ def DetectFieldCard(logMessage):
             fieldCardsInfoSavePoint = (int(entityDetailArray[5]) - 1) * 7 + int(entityDetailArray[3])
 
             fieldCardsInfo[fieldCardsInfoSavePoint] = [entityDetailArray, tagChangeEntityData.group(2)]
+            LogManager.PrintLog("TagChangeEntityObserver", "DetectFieldCard", "entity detail: " +
+                                " ".join(entityDetailArray), DefineManager.LOG_LEVEL_INFO)
 
 def DetectTurns(logMessage):
     global fieldCardsInfo
@@ -59,4 +61,5 @@ def DetectTurns(logMessage):
             fieldCardsInfo = {}
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "Print field status", DefineManager.LOG_LEVEL_INFO)
         elif tagChangeEntityData.group(2) == "MAIN_START_TRIGGERS":
+            AdvancedPrintManager.PrintFieldStatus(fieldCardsInfo)
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "MAIN_START_TRIGGERS", DefineManager.LOG_LEVEL_INFO)
