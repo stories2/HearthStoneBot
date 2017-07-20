@@ -31,3 +31,9 @@ def DetectFieldCard(logMessage):
     if tagChangeEntityData != None:
         LogManager.PrintLog("TagChangeEntityObserver", "DetectFieldCard", "entity: " + tagChangeEntityData.group(1) +
                             " value: " + tagChangeEntityData.group(2), DefineManager.LOG_LEVEL_INFO)
+
+def DetectTurns(logMessage):
+    tagChangeEntityData = re.search("TAG_CHANGE Entity=(.+?) tag=STEP value=(.+?)\n", logMessage)
+    if tagChangeEntityData != None:
+        LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "entity: " + tagChangeEntityData.group(1) +
+                            " value: " + tagChangeEntityData.group(2), DefineManager.LOG_LEVEL_INFO)
