@@ -37,3 +37,7 @@ def DetectTurns(logMessage):
     if tagChangeEntityData != None:
         LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "entity: " + tagChangeEntityData.group(1) +
                             " value: " + tagChangeEntityData.group(2), DefineManager.LOG_LEVEL_INFO)
+        if tagChangeEntityData.group(2) == "MAIN_READY":
+            LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "Print field status", DefineManager.LOG_LEVEL_INFO)
+        elif tagChangeEntityData.group(2) == "MAIN_START_TRIGGERS":
+            LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "MAIN_START_TRIGGERS", DefineManager.LOG_LEVEL_INFO)
