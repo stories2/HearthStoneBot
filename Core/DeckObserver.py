@@ -23,6 +23,7 @@ def ParseShowEntity(logMessage):
         GameObservingInit()
 
     TagChangeEntityObserver.IsGameComplete(logMessage)
+    TagChangeEntityObserver.DetectFieldCard(logMessage)
 
     # found show entity start point
     if ShowEntityObserver.GetIsShowEntityMode() == False:
