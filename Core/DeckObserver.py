@@ -55,12 +55,12 @@ def ParseShowEntity(logMessage):
 
     # found hide entity
     hideCardInfo = HideEntityObserver.CheckHideEntity(logMessage)
-    if hideCardInfo != None:
-        if hideCardInfo[DefineManager.PLAYER_NUMBER_SAVED_POINT] == DefineManager.PLAYER_NUMBER_1:
-            deckObserverPlayer1[hideCardInfo[DefineManager.CARD_ID_SAVED_POINT]] = {}
-            LogManager.PrintLog("DeckObserver", "ParseShowEntity", "player#1 hide card#" +
-                                hideCardInfo[DefineManager.CARD_ID_SAVED_POINT], DefineManager.LOG_LEVEL_INFO)
-        else:
-            deckObserverPlayer2[hideCardInfo[DefineManager.CARD_ID_SAVED_POINT]] = {}
-            LogManager.PrintLog("DeckObserver", "ParseShowEntity", "player#2 hide card#" +
-                                hideCardInfo[DefineManager.CARD_ID_SAVED_POINT], DefineManager.LOG_LEVEL_INFO)
+    # if hideCardInfo != None:
+    #     if hideCardInfo[DefineManager.PLAYER_NUMBER_SAVED_POINT] == DefineManager.PLAYER_NUMBER_1:
+    #         deckObserverPlayer1[hideCardInfo[DefineManager.CARD_ID_SAVED_POINT]] = {}
+    #         LogManager.PrintLog("DeckObserver", "ParseShowEntity", "player#1 hide card#" +
+    #                             hideCardInfo[DefineManager.CARD_ID_SAVED_POINT], DefineManager.LOG_LEVEL_INFO)
+    #     else:
+    #         deckObserverPlayer2[hideCardInfo[DefineManager.CARD_ID_SAVED_POINT]] = {}
+    #         LogManager.PrintLog("DeckObserver", "ParseShowEntity", "player#2 hide card#" +
+    #                             hideCardInfo[DefineManager.CARD_ID_SAVED_POINT], DefineManager.LOG_LEVEL_INFO)

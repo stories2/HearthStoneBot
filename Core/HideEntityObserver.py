@@ -25,10 +25,14 @@ def CheckHideEntity(logMessage):
             if hideEntityData[1] == "ZONE":
                 LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "Card state " + hideEntityData[0][2] +
                                     " -> " + hideEntityData[2], DefineManager.LOG_LEVEL_INFO)
+                return hideEntityData
             else:
                 LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "Unkown tag", DefineManager.LOG_LEVEL_WARN)
 
-            return hideEntityData[0]
+            return None
         else:
             LogManager.PrintLog("HideEntityObserver", "CheckHideEntity", "wrong entity accepted", DefineManager.LOG_LEVEL_WARN)
     return None
+
+def CardZoneDirectionObserver(logMessage):
+    hideEntityTagOfZoneData = CheckHideEntity(logMessage)
