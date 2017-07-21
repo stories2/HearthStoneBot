@@ -35,3 +35,7 @@ def MoveFileToDirectory(targetDirectoryPath, targetFileName, targetFolderPath):
         LogManager.PrintLog("DirectoryManager", "MoveFileToDirectory", "file moved successfully", DefineManager.LOG_LEVEL_INFO)
     except:
         LogManager.PrintLog("DirectoryManager", "MoveFileToDirectory", "file move process has problem", DefineManager.LOG_LEVEL_ERROR)
+
+def RemoveFile(targetFilePath):
+    LogManager.PrintLog("DirectoryManager", "RemoveFile", "file removed: " + targetFilePath, DefineManager.LOG_LEVEL_INFO)
+    os.remove(targetFilePath)

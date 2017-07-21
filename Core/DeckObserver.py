@@ -1,4 +1,4 @@
-from Utils import LogManager
+from Utils import LogManager, DirectoryManager
 from Settings import DefineManager
 import ShowEntityObserver
 import HideEntityObserver
@@ -15,11 +15,13 @@ def GameObservingInit():
     deckObserverPlayer1 = {}
     deckObserverPlayer2 = {}
 
-def ParseShowEntity(logMessage):
+def ParseShowEntity(logMessage, targetFilePath = None):
     global deckObserverPlayer1
     global deckObserverPlayer2
 
     if TagChangeEntityObserver.IsGameStart(logMessage):
+        if targetFilePath != None:
+            DirectoryManager.RemoveFile(targetFilePath)
         GameObservingInit()
 
     TagChangeEntityObserver.IsGameComplete(logMessage)

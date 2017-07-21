@@ -19,7 +19,7 @@ def RealtimeLoader(targetFilePath = DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES
 
         else:
             # LogManager.PrintLog("FileIO", "RealtimeLoader", logMessage, DefineManager.LOG_LEVEL_INFO)
-            DeckObserver.ParseShowEntity(logMessage)
+            DeckObserver.ParseShowEntity(logMessage, targetFilePath)
 
 def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
     LogManager.PrintLog("FileIO", "StaticLoader", "Load file path: " + targetFilePath, DefineManager.LOG_LEVEL_INFO)
@@ -45,4 +45,4 @@ def StaticLoader(targetFilePath = DefineManager.DEFAULT_LOG_FILE_SAVED_PATH):
         else:
             # LogManager.PrintLog("FileIO", "StaticLoader", logMessage, DefineManager.LOG_LEVEL_INFO)
             # DeckObserver.IsShowEntityModeStartPoint(logMessage)
-            DeckObserver.ParseShowEntity(logMessage)
+            DeckObserver.ParseShowEntity(logMessage, targetFilePath)
