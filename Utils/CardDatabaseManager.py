@@ -14,4 +14,17 @@ def StaticCradDataLoader():
     LogManager.PrintLog("CardDatabaseManager", "StaticCardDataLoader", "card data loaded keys: " + ', '.join(cardData.keys()), DefineManager.LOG_LEVEL_INFO)
 
 def SearchCardById(cardId):
+    global cardData
+
+    if cardId != "" and cardId != None:
+        LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "search card id: " + cardId, DefineManager.LOG_LEVEL_INFO)
+
+        for indexOfCardType in cardData.keys():
+            for indexOfCardInfo in cardData[indexOfCardType]:
+                if indexOfCardInfo["cardId"] == cardId:
+                    LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "find card id: " + cardId, DefineManager.LOG_LEVEL_INFO)
+                    return indexOfCardInfo
+        LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "cannot find card id: " + cardId, DefineManager.LOG_LEVEL_WARN)
+    else:
+        return None
     return None

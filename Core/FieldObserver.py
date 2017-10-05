@@ -11,8 +11,8 @@ def GetEachCardSpec(fieldStatusData):
     fieldStatusPlayer1 = fieldStatusData[0]
     fieldStatusPlayer2 = fieldStatusData[1]
 
-    fieldSpecPlayer1 = []
-    fieldSpecPlayer2 = []
+    fieldSpecPlayer1 = {}
+    fieldSpecPlayer2 = {}
 
     indexCounter = 0
 
@@ -31,6 +31,7 @@ def GetEachCardSpec(fieldStatusData):
 def ParseFieldStatus(fieldData):
     fieldStatusPlayer1 = ["", "", "", "", "", "", "", ""]
     fieldStatusPlayer2 = ["", "", "", "", "", "", "", ""]
+    fieldPrintFormat = "{0:>10} |{1:>10} |{2:>10} |{3:>10} |{4:>10} |{5:>10} |{6:>10} |{7:>10} |"
 
     for indexOfFieldNumber, indexOfCard in fieldData.iteritems():
         if indexOfCard[0][3] != 0:
@@ -44,4 +45,11 @@ def ParseFieldStatus(fieldData):
             else:
                 LogManager.PrintLog("FieldObserver", "ParseFieldStatus", "unknown player", DefineManager.LOG_LEVEL_WARN)
 
+    fieldOfPlayer1 = fieldPrintFormat.format(*fieldStatusPlayer1)
+    fieldOfPlayer2 = fieldPrintFormat.format(*fieldStatusPlayer2)
+
+    LogManager.PrintLog("FieldObserver", "ParseFieldStatus", "player1: " + fieldOfPlayer1,
+                        DefineManager.LOG_LEVEL_INFO)
+    LogManager.PrintLog("FieldObserver", "ParseFieldStatus", "player2: " + fieldOfPlayer2,
+                        DefineManager.LOG_LEVEL_INFO)
     return [fieldStatusPlayer1, fieldStatusPlayer2]
