@@ -11,7 +11,7 @@ def StaticCradDataLoader():
     with open('Data/CardData.json') as dataFile:
         cardData = json.load(dataFile)
 
-    LogManager.PrintLog("CardDatabaseManager", "StaticCardDataLoader", "card data loaded", DefineManager.LOG_LEVEL_INFO)
+    LogManager.PrintLog("CardDatabaseManager", "StaticCardDataLoader", "card data loaded keys: " + ', '.join(cardData.keys()), DefineManager.LOG_LEVEL_INFO)
 
 def SearchCardById(cardId):
     return
