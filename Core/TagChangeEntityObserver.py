@@ -53,13 +53,18 @@ def DetectFieldCard(logMessage):
 def DetectTurns(logMessage):
     global fieldCardsInfo
 
-    tagChangeEntityData = re.search("TAG_CHANGE Entity=(.+?) tag=STEP value=(.+?)\n", logMessage)
+    tagChangeEntityData = re.search("TAG_CHANGE Entity=(.+?) tag=STEP value=(.+?) \n", logMessage)
     if tagChangeEntityData != None:
         LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "entity: " + tagChangeEntityData.group(1) +
                             " value: " + tagChangeEntityData.group(2), DefineManager.LOG_LEVEL_INFO)
         if tagChangeEntityData.group(2) == "MAIN_READY":
             fieldCardsInfo = {}
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "Print field status", DefineManager.LOG_LEVEL_INFO)
-        elif tagChangeEntityData.group(2) == "MAIN_START_TRIGGERS":
+        elif tagChangeEntityData.group(2) == "MAIN_ACTION":
             AdvancedPrintManager.PrintFieldStatus(fieldCardsInfo)
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "MAIN_START_TRIGGERS", DefineManager.LOG_LEVEL_INFO)
+        else:
+            LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "not rdy tag value", DefineManager.LOG_LEVEL_WARN)
+    else:
+        return
+        # LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "tag chnage entity data is none", DefineManager.LOG_LEVEL_WARN)
