@@ -6,6 +6,50 @@ def FieldMainObserver(fieldData):
     fieldStatusCard = []
     fieldStatusBasedId = ParseFieldStatus(fieldData)
     fieldStatusCard = GetEachCardSpec(fieldStatusBasedId)
+    FieldSpecObserver(fieldStatusCard)
+
+def FieldSpecObserver(fieldSpecStatusData):
+
+    fieldSpecPlayer1 = fieldSpecStatusData[0]
+    fieldSpecPlayer2 = fieldSpecStatusData[1]
+
+    fieldStatusPlayer1 = ["", "", "", "", "", "", "", ""]
+    fieldStatusPlayer2 = ["", "", "", "", "", "", "", ""]
+    fieldPrintFormat = "{0:>10} |{1:>10} |{2:>10} |{3:>10} |{4:>10} |{5:>10} |{6:>10} |{7:>10} |"
+
+
+    for indexCounter in fieldSpecPlayer1:
+        indexOfCardSpec = fieldSpecPlayer1[indexCounter]
+        if indexOfCardSpec != None:
+            try:
+                if indexOfCardSpec.has_key(u"attack") and indexOfCardSpec.has_key(u"health") and indexOfCardSpec.has_key(u"cost"):
+                    attackValue = indexOfCardSpec[u"attack"]
+                    healthValue = indexOfCardSpec[u"health"]
+                    costValue = indexOfCardSpec[u"cost"]
+                    fieldStatusPlayer1[indexCounter] = str(attackValue) + "/" + str(healthValue) + "/" + str(costValue)
+            except:
+                fieldStatusPlayer1[indexCounter] = "?/?/?"
+
+    for indexCounter in fieldSpecPlayer2:
+        indexOfCardSpec = fieldSpecPlayer2[indexCounter]
+        if indexOfCardSpec != None:
+            try:
+                if indexOfCardSpec.has_key(u"attack") and indexOfCardSpec.has_key(u"health") and indexOfCardSpec.has_key(u"cost"):
+                    attackValue = indexOfCardSpec[u"attack"]
+                    healthValue = indexOfCardSpec[u"health"]
+                    costValue = indexOfCardSpec[u"cost"]
+                    fieldStatusPlayer2[indexCounter] = str(attackValue) + "/" + str(healthValue) + "/" + str(costValue)
+            except:
+                fieldStatusPlayer2[indexCounter] = "?/?/?"
+
+    fieldOfPlayer1 = fieldPrintFormat.format(*fieldStatusPlayer1)
+    fieldOfPlayer2 = fieldPrintFormat.format(*fieldStatusPlayer2)
+
+    LogManager.PrintLog("FieldObserver", "FieldSpecObserver", "player1: " + fieldOfPlayer1,
+                        DefineManager.LOG_LEVEL_INFO)
+    LogManager.PrintLog("FieldObserver", "FieldSpecObserver", "player2: " + fieldOfPlayer2,
+                        DefineManager.LOG_LEVEL_INFO)
+
 
 def GetEachCardSpec(fieldStatusData):
     fieldStatusPlayer1 = fieldStatusData[0]
