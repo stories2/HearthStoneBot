@@ -12,6 +12,8 @@ def SearchDirectoryFiles(targetDirectoryPath):
 def FindLatestLogFile(hearthStoneLogFilesPath = DefineManager.DEFAULT_HEARTH_STONE_LOG_FILES_PATH):
     listOfFiles = SearchDirectoryFiles(hearthStoneLogFilesPath)
 
+    listOfFiles.sort()
+
     latestSavedFile = listOfFiles[-1]
 
     LogManager.PrintLog("DirectoryManager", "FindLatestLogFile", "last file: " + latestSavedFile, DefineManager.LOG_LEVEL_INFO)
