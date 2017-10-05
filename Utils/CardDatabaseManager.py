@@ -17,12 +17,12 @@ def SearchCardById(cardId):
     global cardData
 
     if cardId != "" and cardId != None:
-        LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "search card id: " + cardId, DefineManager.LOG_LEVEL_INFO)
+        LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "search card id: " + cardId, DefineManager.LOG_LEVEL_DEBUG)
 
         for indexOfCardType in cardData.keys():
             for indexOfCardInfo in cardData[indexOfCardType]:
                 if indexOfCardInfo["cardId"] == cardId:
-                    LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "find card id: " + cardId, DefineManager.LOG_LEVEL_INFO)
+                    LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "find card id: " + cardId, DefineManager.LOG_LEVEL_DEBUG)
                     return indexOfCardInfo
         LogManager.PrintLog("CardDatabaseManager", "SearchCardById", "cannot find card id: " + cardId, DefineManager.LOG_LEVEL_WARN)
     else:
