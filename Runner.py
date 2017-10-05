@@ -1,5 +1,7 @@
 from Core import FileIO
-from Settings import DefineManager
+from Utils import CardDatabaseManager
+
+CardDatabaseManager.StaticCradDataLoader()
 
 # FileIO.StaticLoader()
 FileIO.RealtimeLoader()
