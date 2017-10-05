@@ -14,4 +14,4 @@ def StaticCradDataLoader():
     LogManager.PrintLog("CardDatabaseManager", "StaticCardDataLoader", "card data loaded keys: " + ', '.join(cardData.keys()), DefineManager.LOG_LEVEL_INFO)
 
 def SearchCardById(cardId):
-    return
+    return None

@@ -3,9 +3,30 @@ from Utils import LogManager, CardDatabaseManager
 
 def FieldMainObserver(fieldData):
     fieldStatusBasedId = []
+    fieldStatusCard = []
     fieldStatusBasedId = ParseFieldStatus(fieldData)
+    fieldStatusCard = GetEachCardSpec(fieldStatusBasedId)
 
-    
+def GetEachCardSpec(fieldStatusData):
+    fieldStatusPlayer1 = fieldStatusData[0]
+    fieldStatusPlayer2 = fieldStatusData[1]
+
+    fieldSpecPlayer1 = []
+    fieldSpecPlayer2 = []
+
+    indexCounter = 0
+
+    for indexOfCardId in fieldStatusPlayer1:
+        fieldSpecPlayer1[indexCounter] = CardDatabaseManager.SearchCardById(indexOfCardId)
+        indexCounter += 1
+
+    indexCounter = 0
+
+    for indexOfCardId in fieldStatusPlayer2:
+        fieldSpecPlayer2[indexCounter] = CardDatabaseManager.SearchCardById(indexOfCardId)
+        indexCounter += 1
+
+    return [fieldSpecPlayer1, fieldSpecPlayer2]
 
 def ParseFieldStatus(fieldData):
     fieldStatusPlayer1 = ["", "", "", "", "", "", "", ""]
