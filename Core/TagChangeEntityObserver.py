@@ -1,6 +1,7 @@
 from Settings import DefineManager
 from Utils import LogManager, AdvancedPrintManager
 import re
+import FieldObserver
 
 fieldCardsInfo = {}
 
@@ -62,6 +63,7 @@ def DetectTurns(logMessage):
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "Print field status", DefineManager.LOG_LEVEL_INFO)
         elif tagChangeEntityData.group(2) == "MAIN_ACTION":
             AdvancedPrintManager.PrintFieldStatus(fieldCardsInfo)
+            FieldObserver.FieldMainObserver(fieldCardsInfo)
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "MAIN_START_TRIGGERS", DefineManager.LOG_LEVEL_INFO)
         else:
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "not rdy tag value", DefineManager.LOG_LEVEL_WARN)
