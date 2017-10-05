@@ -8,7 +8,7 @@ def PrintFieldStatus(fieldDictionaryData):
 
     for indexOfFieldNumber, indexOfCard in fieldDictionaryData.iteritems():
         if indexOfCard[0][3] != 0:
-            playerNumber = int(indexOfCard[0][5])
+            playerNumber = int(indexOfCard[0][DefineManager.PLAYER_NUMBER_SAVED_POINT])
             zonePosition = int(indexOfCard[0][3])
 
             if playerNumber == 1:
