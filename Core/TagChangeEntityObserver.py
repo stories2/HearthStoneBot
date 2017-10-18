@@ -37,7 +37,7 @@ def DetectFieldCard(logMessage):
         LogManager.PrintLog("TagChangeEntityObserver", "DetectFieldCard", "entity: " + tagChangeEntityData.group(1) +
                             " value: " + tagChangeEntityData.group(2), DefineManager.LOG_LEVEL_INFO)
 
-        entityDetailData = re.search("name=(.+?) id=(.+?) zone=(.+?) zonePos=(.+?) cardId=(.+?) player=(.+?)", tagChangeEntityData.group(1))
+        entityDetailData = re.search("entityName=(.+?) id=(.+?) zone=(.+?) zonePos=(.+?) cardId=(.+?) player=(.+?)", tagChangeEntityData.group(1))
 
         if entityDetailData != None:
 
