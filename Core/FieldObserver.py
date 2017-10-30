@@ -1,12 +1,13 @@
 from Settings import DefineManager
 from Utils import LogManager, CardDatabaseManager
+import FieldHelper
 
 def FieldMainObserver(fieldData):
     fieldStatusBasedId = []
     fieldStatusCard = []
     fieldStatusBasedId = ParseFieldStatus(fieldData)
     fieldStatusCard = GetEachCardSpec(fieldStatusBasedId)
-    FieldSpecObserver(fieldStatusCard)
+    FieldHelper.CalculateProcess(FieldSpecObserver(fieldStatusCard))
 
 def FieldSpecObserver(fieldSpecStatusData):
 
