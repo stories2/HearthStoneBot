@@ -14,3 +14,6 @@ def BestCardSwap(fieldData, playerNumber):
                         "BestCardSwap", "calculate best card swap player : " + str(playerNumber),
                         DefineManager.LOG_LEVEL_INFO)
     return
+
+def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
+    return
