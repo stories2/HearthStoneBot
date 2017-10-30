@@ -11,6 +11,6 @@ def CalculateProcess(fieldData):
 
 def BestCardSwap(fieldData, playerNumber):
     LogManager.PrintLog("FieldHelper",
-                        "BestCardSwap", "calculate best card swap player : " + playerNumber,
+                        "BestCardSwap", "calculate best card swap player : " + str(playerNumber),
                         DefineManager.LOG_LEVEL_INFO)
     return
