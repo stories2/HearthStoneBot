@@ -15,6 +15,26 @@ def FieldSpecObserver(fieldSpecStatusData):
 
     fieldStatusPlayer1 = ["", "", "", "", "", "", "", ""]
     fieldStatusPlayer2 = ["", "", "", "", "", "", "", ""]
+
+    fieldInfoPlayer1 = [
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE]
+    ]
+    fieldInfoPlayer2 = [
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE]
+    ]
+
     fieldPrintFormat = "{0:>10} |{1:>10} |{2:>10} |{3:>10} |{4:>10} |{5:>10} |{6:>10} |{7:>10} |"
 
 
@@ -26,6 +46,7 @@ def FieldSpecObserver(fieldSpecStatusData):
                     attackValue = indexOfCardSpec[u"attack"]
                     healthValue = indexOfCardSpec[u"health"]
                     costValue = indexOfCardSpec[u"cost"]
+                    fieldInfoPlayer1[indexCounter] = [attackValue, healthValue, costValue]
                     fieldStatusPlayer1[indexCounter] = str(attackValue) + "/" + str(healthValue) + "/" + str(costValue)
             except:
                 fieldStatusPlayer1[indexCounter] = "?/?/?"
@@ -38,6 +59,7 @@ def FieldSpecObserver(fieldSpecStatusData):
                     attackValue = indexOfCardSpec[u"attack"]
                     healthValue = indexOfCardSpec[u"health"]
                     costValue = indexOfCardSpec[u"cost"]
+                    fieldInfoPlayer2[indexCounter] = [attackValue, healthValue, costValue]
                     fieldStatusPlayer2[indexCounter] = str(attackValue) + "/" + str(healthValue) + "/" + str(costValue)
             except:
                 fieldStatusPlayer2[indexCounter] = "?/?/?"
@@ -49,6 +71,7 @@ def FieldSpecObserver(fieldSpecStatusData):
                         DefineManager.LOG_LEVEL_INFO)
     LogManager.PrintLog("FieldObserver", "FieldSpecObserver", "player2: " + fieldOfPlayer2,
                         DefineManager.LOG_LEVEL_INFO)
+    return [fieldInfoPlayer1, fieldInfoPlayer2]
 
 
 def GetEachCardSpec(fieldStatusData):
