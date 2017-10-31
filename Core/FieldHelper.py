@@ -32,18 +32,18 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
     playerNumber = (playerNumber + 1) % 2
     for i in range(1, length):
         defender = defendCardInfo[i]
-        linkList.append([DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 - 1, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, fieldData[playerNumber][defender][0]]) # attack
-        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 - 1, fieldData[playerNumber][defender][1]]) # health
+        linkList.append([DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][defender][0]]) # attack
+        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, fieldData[playerNumber][defender][1]]) # health
 
     playerNumber = (playerNumber + 1) % 2
     for i in range(1, length):
         attacker = attackCardInfo[i]
         defender = defendCardInfo[i]
-        linkList.append([attacker, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, fieldData[playerNumber][attacker][0]])
-        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, attacker, fieldData[(playerNumber + 1) % 2][defender][0]])
+        linkList.append([attacker, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][attacker][0]])
+        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, attacker, fieldData[(playerNumber + 1) % 2][defender][0]])
 
-    for i in range(0, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2):
-        rowTemplate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for i in range(0, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 2):
+        rowTemplate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         playground.append(rowTemplate)
 
     for indexOfLink in linkList:
@@ -51,4 +51,5 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
         y = indexOfLink[1]
         cost = indexOfLink[2]
         playground[y][x] = cost
+
     return
