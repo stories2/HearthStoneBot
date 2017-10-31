@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Core import FileIO, FieldHelper
 from Utils import CardDatabaseManager
 

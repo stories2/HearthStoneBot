@@ -16,4 +16,9 @@ def BestCardSwap(fieldData, playerNumber):
     return
 
 def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
+    LogManager.PrintLog("FieldHelper",
+                        "SimulateCardSwap", "player: " + str(playerNumber) +
+                        " attacker: " + " ".join(str(x) for x in attackCardInfo) +
+                        " defender: " + " ".join(str(x) for x in defendCardInfo),
+                        DefineManager.LOG_LEVEL_INFO)
     return
