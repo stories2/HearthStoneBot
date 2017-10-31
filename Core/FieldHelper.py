@@ -33,7 +33,7 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
     for i in range(1, length):
         defender = defendCardInfo[i]
         linkList.append([DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][defender][0]]) # attack
-        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, fieldData[playerNumber][defender][1]]) # health
+        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, fieldData[playerNumber][defender][1]]) # health
 
     playerNumber = (playerNumber + 1) % 2
     for i in range(1, length):
@@ -52,4 +52,19 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
         cost = indexOfLink[2]
         playground[y][x] = cost
 
-    return
+    for y in range(1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1):
+        for x in range(1, y):
+            if playground[y][x] > 0:
+                LogManager.PrintLog("FieldHelper", "SimulateCardSwap",
+                                    "<" + str(x) + ", " + str(y) + "> : " + str(playground[y][x]), DefineManager.LOG_LEVEL_INFO)
+                defenderAttack = playground[y][DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1]
+                defenderHealth = playground[DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1][y]
+                attackerAttack = playground[y][x]
+                if defenderHealth > 0:
+                    playground[DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1][y] -= attackerAttack
+                    playground[0][x] -= defenderAttack
+    sum = 0
+    for index in range(0, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1):
+        sum = sum + playground[0][index]
+        sum = sum - playground[index][DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1]
+    return sum
