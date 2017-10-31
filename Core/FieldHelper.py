@@ -55,8 +55,8 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
     for y in range(1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1):
         for x in range(1, y):
             if playground[y][x] > 0:
-                LogManager.PrintLog("FieldHelper", "SimulateCardSwap",
-                                    "<" + str(x) + ", " + str(y) + "> : " + str(playground[y][x]), DefineManager.LOG_LEVEL_INFO)
+                # LogManager.PrintLog("FieldHelper", "SimulateCardSwap",
+                #                     "<" + str(x) + ", " + str(y) + "> : " + str(playground[y][x]), DefineManager.LOG_LEVEL_INFO)
                 defenderAttack = playground[y][DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1]
                 defenderHealth = playground[DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1][y]
                 attackerAttack = playground[y][x]
@@ -67,4 +67,7 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
     for index in range(0, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1):
         sum = sum + playground[0][index]
         sum = sum - playground[index][DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1]
+
+    LogManager.PrintLog("FieldHelper", "SimulateCardSwap",
+                        "the score is: " + str(sum), DefineManager.LOG_LEVEL_INFO)
     return sum
