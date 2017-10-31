@@ -33,3 +33,7 @@ NOT_AVAILABLE = -1
 # Use this : Utils/DirectoryManager
 # As : default parameter value
 DEFAULT_HEARTH_STONE_LOG_FILES_PATH = "/Users/" + COMPUTER_USER_NAME + "/Library/Preferences/Blizzard/Hearthstone/Logs/"
+
+# Use this : Core/FieldHelper
+# As : max field card num
+MAXIMUM_FIELD_CARD_NUM = 7
