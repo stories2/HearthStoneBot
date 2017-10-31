@@ -22,6 +22,7 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
                         " defender: " + " ".join(str(x) for x in defendCardInfo),
                         DefineManager.LOG_LEVEL_INFO)
     linkList = []
+    playground = []
     length = len(attackCardInfo)
     for i in range(1, length):
         attacker = attackCardInfo[i]
@@ -41,5 +42,13 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
         linkList.append([attacker, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, fieldData[playerNumber][attacker][0]])
         linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM - 1, attacker, fieldData[(playerNumber + 1) % 2][defender][0]])
 
+    for i in range(0, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2):
+        rowTemplate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        playground.append(rowTemplate)
 
+    for indexOfLink in linkList:
+        x = indexOfLink[0]
+        y = indexOfLink[1]
+        cost = indexOfLink[2]
+        playground[y][x] = cost
     return
