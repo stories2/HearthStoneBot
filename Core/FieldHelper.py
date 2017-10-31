@@ -27,22 +27,25 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
     length = len(attackCardInfo)
     for i in range(1, length):
         attacker = attackCardInfo[i]
-        linkList.append([0, attacker, fieldData[playerNumber][attacker][0]]) # attack
-        linkList.append([attacker, 0, fieldData[playerNumber][attacker][1]]) # health
+        if attacker > 0:
+            linkList.append([0, attacker, fieldData[playerNumber][attacker][0]]) # attack
+            linkList.append([attacker, 0, fieldData[playerNumber][attacker][1]]) # health
 
     playerNumber = (playerNumber + 1) % 2 # defender
     for i in range(1, length):
         defender = defendCardInfo[i]
-        defCardStatus[defender] = 1
-        linkList.append([DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][defender][0]]) # attack
-        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, fieldData[playerNumber][defender][1]]) # health
+        if defender > 0:
+            defCardStatus[defender] = 1
+            linkList.append([DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][defender][0]]) # attack
+            linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 1, fieldData[playerNumber][defender][1]]) # health
 
     playerNumber = (playerNumber + 1) % 2 # attacker
     for i in range(1, length):
         attacker = attackCardInfo[i]
         defender = defendCardInfo[i]
-        linkList.append([attacker, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][attacker][0]])
-        linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, attacker, fieldData[(playerNumber + 1) % 2][defender][0]])
+        if attacker > 0 and defender > 0:
+            linkList.append([attacker, defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, fieldData[playerNumber][attacker][0]])
+            linkList.append([defender + DefineManager.MAXIMUM_FIELD_CARD_NUM + 1, attacker, fieldData[(playerNumber + 1) % 2][defender][0]])
 
     for i in range(0, DefineManager.MAXIMUM_FIELD_CARD_NUM * 2 + 2):
         rowTemplate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
