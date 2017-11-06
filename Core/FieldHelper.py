@@ -22,10 +22,16 @@ def BestCardSwap(fieldData, playerNumber):
         [0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0]
     ]
+
+    swapCase = [
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0]
+    ]
     maxScore = -987654321
     LogManager.PrintLog("FieldHelper",
                         "BestCardSwap", "calculate best card swap player : " + str(playerNumber),
                         DefineManager.LOG_LEVEL_INFO)
+    RecursiveSearcher(playerNumber, fieldData, 1, swapCase)
     return
 
 def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):

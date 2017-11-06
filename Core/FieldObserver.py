@@ -24,9 +24,11 @@ def FieldSpecObserver(fieldSpecStatusData):
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE]
     ]
     fieldInfoPlayer2 = [
+        [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
         [DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE, DefineManager.NOT_AVAILABLE],
