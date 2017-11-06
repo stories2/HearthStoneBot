@@ -61,7 +61,7 @@ def DetectTurns(logMessage):
         if tagChangeEntityData.group(2) == "MAIN_READY":
             fieldCardsInfo = {}
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "Print field status", DefineManager.LOG_LEVEL_INFO)
-        elif tagChangeEntityData.group(2) == "MAIN_ACTION":
+        elif tagChangeEntityData.group(2) == "MAIN_START":
             AdvancedPrintManager.PrintFieldStatus(fieldCardsInfo)
             FieldObserver.FieldMainObserver(fieldCardsInfo)
             LogManager.PrintLog("TagChangeEntityObserver", "DetectTurns", "MAIN_START_TRIGGERS", DefineManager.LOG_LEVEL_INFO)
