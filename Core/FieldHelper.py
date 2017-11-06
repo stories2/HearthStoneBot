@@ -1,6 +1,12 @@
 from Settings import DefineManager
 from Utils import LogManager
 
+bestCardSwap = [
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0]
+]
+maxScore = -987654321
+
 def CalculateProcess(fieldData):
     LogManager.PrintLog("FieldHelper",
                         "CalculateProcess", "player field data accepted",
@@ -10,17 +16,24 @@ def CalculateProcess(fieldData):
     return
 
 def BestCardSwap(fieldData, playerNumber):
+    global maxScore
+    global bestCardSwap
+    bestCardSwap = [
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+    maxScore = -987654321
     LogManager.PrintLog("FieldHelper",
                         "BestCardSwap", "calculate best card swap player : " + str(playerNumber),
                         DefineManager.LOG_LEVEL_INFO)
     return
 
 def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
-    LogManager.PrintLog("FieldHelper",
-                        "SimulateCardSwap", "player: " + str(playerNumber) +
-                        " attacker: " + " ".join(str(x) for x in attackCardInfo) +
-                        " defender: " + " ".join(str(x) for x in defendCardInfo),
-                        DefineManager.LOG_LEVEL_INFO)
+    # LogManager.PrintLog("FieldHelper",
+    #                     "SimulateCardSwap", "player: " + str(playerNumber) +
+    #                     " attacker: " + " ".join(str(x) for x in attackCardInfo) +
+    #                     " defender: " + " ".join(str(x) for x in defendCardInfo),
+    #                     DefineManager.LOG_LEVEL_INFO)
     linkList = []
     playground = []
     defCardStatus = [0, 0, 0, 0, 0, 0, 0, 0]
@@ -81,6 +94,55 @@ def SimulateCardSwap(fieldData, playerNumber, attackCardInfo, defendCardInfo):
     for index in range(1, DefineManager.MAXIMUM_FIELD_CARD_NUM + 1):
         if fieldData[playerNumber][index][0] != DefineManager.NOT_AVAILABLE and defCardStatus[index] != 1:
             sum = sum - fieldData[playerNumber][index][0]
-    LogManager.PrintLog("FieldHelper", "SimulateCardSwap",
-                        "the score is: " + str(sum), DefineManager.LOG_LEVEL_INFO)
+    # LogManager.PrintLog("FieldHelper", "SimulateCardSwap",
+    #                     "the score is: " + str(sum), DefineManager.LOG_LEVEL_INFO)
     return sum
+
+def RecursiveSearcher(playerNumber, fieldData, level, cardField):
+    global maxScore
+    global bestCardSwap
+    if level > 7:
+        return 0;
+    i = 0
+    defenderNumber = (playerNumber + 1 ) % 2
+    if level == DefineManager.MAXIMUM_FIELD_CARD_NUM:
+        if cardField[defenderNumber] == [0, 3, 0, 3, 0, 0, 0, 0]:
+            i = 0
+        resultSum = SimulateCardSwap(fieldData, playerNumber, cardField[playerNumber], cardField[defenderNumber])
+        if resultSum > maxScore:
+            maxScore = resultSum
+            for i in range(1, DefineManager.MAXIMUM_FIELD_CARD_NUM + 1):
+                bestCardSwap[playerNumber][i] = cardField[playerNumber][i]
+                bestCardSwap[defenderNumber][i] = cardField[defenderNumber][i]
+            cardPlayerField = ', '.join(str(e) for e in bestCardSwap[playerNumber])
+            cardDefenderField = ', '.join(str(e) for e in bestCardSwap[defenderNumber])
+            LogManager.PrintLog("FieldHelper", "RecursiveSearcher", "max score: " + str(maxScore) +
+                                "player: " + cardPlayerField + "\ndefender: " + cardDefenderField, DefineManager.LOG_LEVEL_INFO)
+        cardField[playerNumber][level] = 0
+        cardField[defenderNumber][level] = 0
+        return 0;
+    for i in range(1, DefineManager.MAXIMUM_FIELD_CARD_NUM + 1):
+        if fieldData[playerNumber][level][0] != DefineManager.NOT_AVAILABLE:
+            cardField[playerNumber][level] = level
+            if fieldData[defenderNumber][i][0] != DefineManager.NOT_AVAILABLE:
+                cardField[defenderNumber][level] = i
+            else:
+                cardField[defenderNumber][level] = 0
+        else:
+            cardField[playerNumber][level] = 0
+            cardField[defenderNumber][level] = 0
+
+        RecursiveSearcher(playerNumber, fieldData, level + 1, cardField)
+
+    cardField[playerNumber][level] = 0
+    cardField[defenderNumber][level] = 0
+    return 0
+
+def GetBestSwap(playerNumber):
+    global maxScore
+    global bestCardSwap
+    defenderNumber = (playerNumber + 1) % 2
+    cardPlayerField = ', '.join(str(e) for e in bestCardSwap[playerNumber])
+    cardDefenderField = ', '.join(str(e) for e in bestCardSwap[defenderNumber])
+    LogManager.PrintLog("FieldHelper", "GetBestSwap", "max score: " + str(maxScore) +
+                        "player: " + cardPlayerField + "\ndefender: " + cardDefenderField, DefineManager.LOG_LEVEL_INFO)
