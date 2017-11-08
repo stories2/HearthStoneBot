@@ -2,7 +2,7 @@
 
 Hearthstone deck tracking and simulate.
 
-[![Sample program running](./Sample.png)](https://www.youtube.com/embed/YM4Zv0CeJSY)
+[![Sample program running](./Sample.png)](https://youtu.be/Qlcgq5gGU3g)
 
 ## Getting Started
 
